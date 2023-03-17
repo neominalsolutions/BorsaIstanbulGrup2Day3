@@ -1,0 +1,18 @@
+<p>login-page works!</p>
+
+<!-- [(ngModel)] FormsModule üzerinden import edildikten sonra gelir. inputtaki değişimi algılayıp eş zamanlı modele yansıtır. event binding, model tarafındaki bir değişikliği template yansıtır yani property binding yapar. [(atrribute+event)] -->
+
+{{loginFormModel | json}}
+
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+  <input type="text" class="form-control" id="name" required [(ngModel)]="loginFormModel.username" name="username"
+    #username="ngModel">
+
+  <span *ngIf="username.invalid || username.pristine"> * </span>
+  <br>
+  <input type="text" class="form-control" id="name" required [(ngModel)]="loginFormModel.password" name="password"
+    #password="ngModel">
+  <br>
+  <input [disabled]="loginForm.invalid" type="submit" value="login" />
+
+</form>

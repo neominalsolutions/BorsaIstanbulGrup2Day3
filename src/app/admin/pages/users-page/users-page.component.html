@@ -1,0 +1,26 @@
+<table [border]="1" style="width:100%">
+  <thead>
+    <th>
+      Username Route Data
+    </th>
+    <th>
+      Name Query String
+    </th>
+    <th>
+      CompanyName
+    </th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of users$ | async">
+      <td>
+        <a [routerLink]="['/admin/user-detail',item.username]"> {{item.username}}</a>
+      </td>
+      <td>
+        <a [routerLink]="['/admin/user-detail']" [queryParams]="{username:item.username}"> {{item.name}}</a>
+      </td>
+      <td>
+        {{item.company?.name}}
+      </td>
+    </tr>
+  </tbody>
+</table>

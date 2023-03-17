@@ -1,0 +1,28 @@
+<header style="position:relative;top:0; height:2vh; background-color:burlywood;padding:10px;width: 98vw;">
+  <nav>
+    <a routerLink="home">Home</a>
+    &nbsp;
+    <a [routerLink]="['about']">About</a>
+    &nbsp;
+
+    <a *ngIf="!isAuthenticated" style="position:absolute; right:0" routerLink="login"> login</a>
+
+    <a *ngIf="isAuthenticated" style="position:absolute; right:0" routerLink="admin"> Admin</a>
+  </nav>
+</header>
+<main>
+  <!-- içeriğin dinamik olarak değişleceği bir alan bıraktım -->
+  <!-- ng-content dışarıdan bir componente işaretlenen yere content göndermek için -->
+  <router-outlet></router-outlet>
+</main>
+
+<footer style="position:fixed;bottom:0; height:10vh; background-color: cadetblue;padding:10px;width: 98vw;">
+  Alt Bilgi
+</footer>
+
+
+<!-- <app-child>
+  <ng-content></ng-content>
+  <home>asdsad</home>
+
+</app-child> -->
