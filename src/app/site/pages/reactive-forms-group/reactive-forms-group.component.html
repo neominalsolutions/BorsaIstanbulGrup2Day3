@@ -1,0 +1,45 @@
+<!-- formGroup directive ile birden fazla kontrolleden oluşan bir form group tanımı yaptık. -->
+
+<form [formGroup]="pForm" (ngSubmit)="onSubmit()">
+
+  <label for="first-name">First Name: </label>
+  <span *ngIf="profileForm.get('firstName')?.hasError('required')">*</span>
+  <!-- eğer formgroup varsa group içindeki form controllere ulaşmak için formControlName directive kullanırı -->
+  <input id="first-name" type="text" formControlName="firstName">
+
+  <label for="last-name">Last Name: </label>
+  <input id="last-name" type="text" formControlName="lastName">
+
+
+  <!-- formGroupName directive form içerisindeki alt gruba bağlanırız -->
+  <div formGroupName="address">
+    <h2>Address</h2>
+
+    <label for="state">Street: </label>
+    <input id="state" type="text" formControlName="state">
+
+    <br>
+
+    <label for="city">City: </label>
+    <input id="city" type="text" formControlName="city">
+
+  </div>
+
+  <br>
+
+  <div formArrayName="aliases">
+    <h2>Aliases</h2>
+    <button type="button" (click)="addAlias()">+ Add another alias</button>
+
+    <div *ngFor="let alias of aliases.controls; let i=index">
+      <!-- The repeated alias template -->
+      <label for="alias-{{ i }}">Alias:</label>
+      <input id="alias-{{ i }}" type="text" [formControlName]="i">
+    </div>
+  </div>
+
+
+
+  <input type="submit" value="Save">
+
+</form>

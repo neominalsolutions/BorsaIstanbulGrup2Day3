@@ -1,0 +1,31 @@
+<br>
+
+
+<!-- <ul>
+  <li *ngFor="let err of errors">
+    {{err}}
+  </li>
+</ul> -->
+
+
+<label for="name">Name: </label>
+<!-- formControl -->
+<input id="name" type="text" [formControl]="name">
+
+<button (click)="getValue()">get Value</button>
+
+{{name.value}}
+
+<span *ngIf="name.invalid">Hata</span>
+
+<br>
+
+<span *ngIf="name.hasError('minlength')">
+  Minimum 7 karakter olmalıdır
+</span>
+
+<br>
+
+<span *ngIf="name.hasError('forbiddenName')">
+  Yasaklı bir kelime girdiniz
+</span>

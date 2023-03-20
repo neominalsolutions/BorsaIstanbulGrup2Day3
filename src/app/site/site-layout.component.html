@@ -5,6 +5,14 @@
     <a [routerLink]="['about']">About</a>
     &nbsp;
 
+
+    <a [routerLink]="['reactive-forms']">reactive-forms</a>
+    &nbsp;
+
+    <a [routerLink]="['reactive-forms-group']">reactive-forms-group sample</a>
+    &nbsp;
+
+
     <a *ngIf="!isAuthenticated" style="position:absolute; right:0" routerLink="login"> login</a>
 
     <a *ngIf="isAuthenticated" style="position:absolute; left:50;cursor:pointer;" (click)="logOut()"> Oturumu

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -31,6 +31,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
     NgxPermissionsModule.forRoot(), // NgxPermissionService ngxRoleServices
+    ReactiveFormsModule, // ReactiveForms module ilgili module import ediyoruz.
   ],
   // providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   // HTTP_INTERCEPTORS uygulama genelinde birden fazla interceptor ile çalışabiliriz fakat HTTP_INTERCEPTORS provider name aynı kullanalım.
