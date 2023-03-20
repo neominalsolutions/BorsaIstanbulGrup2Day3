@@ -1,3 +1,29 @@
 <!-- <home-line-chart></home-line-chart>
 <home-services></home-services>
 <home-teammates></home-teammates> -->
+
+<app-custom-button btnTitle="Btn1" btnClass="primary" (onClick)="onBtnClick($event)"></app-custom-button>
+
+<br>
+<app-custom-button btnTitle="Btn2" btnClass="secondary" (onClick)="onBtnClick($event)"></app-custom-button>
+
+<br>
+
+<app-label appTextUnderline lblText="myLabel"></app-label>
+<br>
+
+
+<br>
+{{url | webProtocol:ProtocolTypes.http}}
+<br>
+
+
+<!-- kendi componentlerimize kendi directivelerimizi uygulayabiliriz -->
+
+
+<!-- custom directive kullanımı -->
+
+<!-- arayüzde stil işlemleri ve evebt mekazması ilke uğramak yerine uygulama içerisinden bir çok yerden çağırılacak bir yapı oluşturup defalarca kez kullanabiliriz. -->
+<span appErrorText [fontSize]="'24px'" appTextUnderline>Hatalı giriş</span>
+
+<div appErrorText>Div elementi ile hata mesajı</div>
