@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxPermissionsService, NgxRolesService } from 'ngx-permissions';
+import { LoadingService } from './_services/loading.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private pService: NgxPermissionsService,
-    private rService: NgxRolesService
+    private rService: NgxRolesService,
+    public lService: LoadingService
   ) {}
   ngOnInit(): void {
     // spa uygulama boostrapt olurken burada apidan permission load et.

@@ -1,1 +1,3 @@
+<mat-spinner *ngIf="lService.loading$ | async"></mat-spinner>
+<!-- tüm sayfalar admin module site module hepsi app component üzerindne çalışıyor tüm loadingleri buradan yönetmek en mantıklı çözüm. -->
 <router-outlet></router-outlet>

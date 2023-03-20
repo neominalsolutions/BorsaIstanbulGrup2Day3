@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { finalize, tap } from 'rxjs';
 import { AuthService } from 'src/app/_services/auth.service';
@@ -11,7 +11,10 @@ export class LoginService {
   constructor(private http: HttpClient, private aS: AuthService) {}
 
   login(url: string, data: LoginForm) {
-    return this.http.post(url, data).pipe(
+    const _h = new HttpHeaders();
+    _h.append('deneme', '1');
+
+    return this.http.post(url, data, { headers: _h }).pipe(
       tap((data: any) => {
         localStorage.setItem('token', JSON.stringify(data.token));
         return data;
