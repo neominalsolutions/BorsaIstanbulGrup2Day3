@@ -15,6 +15,7 @@ import {
 import { TokenInterceptor } from './_services/token.interceptor';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoadingInterceptor } from './_services/loading.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import { LoadingInterceptor } from './_services/loading.interceptor';
     FormsModule,
     HttpClientModule,
     MatProgressSpinnerModule,
+    BrowserAnimationsModule,
     NgxPermissionsModule.forRoot(), // NgxPermissionService ngxRoleServices
   ],
   // providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],

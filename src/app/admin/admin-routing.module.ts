@@ -4,6 +4,8 @@ import { NgxPermissionsGuard } from 'ngx-permissions';
 import { AuthGuard } from '../_services/auth.guard';
 import { PermissionLoadGuard as AdminPermissionLoadGuard } from '../_services/permission-load.guard';
 import { AdminComponent } from './admin.component';
+import { PermissionAssignmentPageComponent } from './pages/permission-assignment-page/permission-assignment-page.component';
+import { RoleAssignementPageComponent } from './pages/role-assignement-page/role-assignement-page.component';
 import { UserDetailPageComponent } from './pages/user-detail-page/user-detail-page.component';
 import { UsersPageComponent } from './pages/users-page/users-page.component';
 
@@ -36,6 +38,14 @@ const routes: Routes = [
       {
         path: 'user-detail', // route paramsız hali query string için
         component: UserDetailPageComponent,
+      },
+      {
+        path: 'role-assignment',
+        component: RoleAssignementPageComponent,
+      },
+      {
+        path: 'permission-assignment',
+        component: PermissionAssignmentPageComponent,
       },
     ],
   },

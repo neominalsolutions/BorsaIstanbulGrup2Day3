@@ -1,0 +1,12 @@
+<!-- {{users$ | async | json}} -->
+
+<!-- {{selected | json}} -->
+
+<mat-form-field appearance="fill">
+  <mat-label>Users</mat-label>
+  <mat-select [value]="selected.id" (valueChange)="select($event)">
+    <mat-option *ngFor="let user of users$ | async" [value]="user.id">
+      {{user.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
