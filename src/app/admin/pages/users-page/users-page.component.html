@@ -4,11 +4,15 @@
       Username Route Data
     </th>
     <th>
+      CompanyName
+    </th>
+    <th>
       Name Query String
     </th>
     <th>
-      CompanyName
+      Actions
     </th>
+
   </thead>
   <tbody>
     <tr *ngFor="let item of users$ | async">
@@ -16,11 +20,24 @@
         <a [routerLink]="['/admin/user-detail',item.username]"> {{item.username}}</a>
       </td>
       <td>
+        {{item.company?.name}}
+      </td>
+      <td>
         <a [routerLink]="['/admin/user-detail']" [queryParams]="{username:item.username}"> {{item.name}}</a>
       </td>
       <td>
-        {{item.company?.name}}
+        <!-- div kullanıyorsak DOM operasyonu olduğu için *ngxPermissionsOnly directive structural directive kullanımı çalışır. ng template çalışmıyor dikkat edelim. -->
+        <!--  -->
+        <div *ngxPermissionsOnly="'user-edit'">
+          <a [routerLink]="['/admin/user-edit',item.id]">Edit</a>
+        </div>
+        <!-- * hali hata meydana getirir. -->
+        <ng-template [ngxPermissionsOnly]="'user-delete'">
+          <a [routerLink]="['/admin/user-delete',item.id]">Delete</a>
+        </ng-template>
       </td>
+
+      <!-- ngxPermissionsOnly directiveler sayesinde component içerisinde element bazlı yetkilendirme yapılabiliyor. -->
     </tr>
   </tbody>
 </table>

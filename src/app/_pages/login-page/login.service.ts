@@ -22,4 +22,9 @@ export class LoginService {
       })
     );
   }
+
+  logOut() {
+    localStorage.removeItem('token');
+    window.location.href = '/login';
+  }
 }

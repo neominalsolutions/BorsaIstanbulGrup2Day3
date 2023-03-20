@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../_pages/login-page/login.service';
 import { AuthService } from '../_services/auth.service';
 
 @Component({
@@ -12,11 +13,15 @@ export class LayoutComponent implements OnInit {
   /**
    *
    */
-  constructor(public aS: AuthService) {}
+  constructor(public aS: AuthService, private lg: LoginService) {}
   ngOnInit(): void {
     this.aS.IsAuthenticated().subscribe((value: boolean) => {
       console.log('auth-state', value);
       this.isAuthenticated = value;
     });
+  }
+
+  logOut() {
+    this.lg.logOut();
   }
 }

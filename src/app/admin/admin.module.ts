@@ -6,18 +6,22 @@ import { AdminComponent } from './admin.component';
 import { UsersPageComponent } from './pages/users-page/users-page.component';
 import { RolesPagesComponent } from './pages/roles-pages/roles-pages.component';
 import { UserDetailPageComponent } from './pages/user-detail-page/user-detail-page.component';
-
+import { NgxPermissionsModule } from 'ngx-permissions';
+import { PermissionLoadGuard } from '../_services/permission-load.guard';
 
 @NgModule({
   declarations: [
     AdminComponent,
     UsersPageComponent,
     RolesPagesComponent,
-    UserDetailPageComponent
+    UserDetailPageComponent,
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
-  ]
+    AdminRoutingModule,
+    NgxPermissionsModule.forChild({
+      permissionsIsolate: true,
+    }),
+  ],
 })
-export class AdminModule { }
+export class AdminModule {}

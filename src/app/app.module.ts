@@ -9,6 +9,10 @@ import { LoginPageComponent } from './_pages/login-page/login-page.component';
 import { NotfoundPageComponent } from './_pages/notfound-page/notfound-page.component';
 import { UnauthorizedPageComponent } from './_pages/unauthorized-page/unauthorized-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import {
+  NgxPermissionsModule,
+  NgxPermissionsModuleConfig,
+} from 'ngx-permissions';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,13 @@ import { HttpClientModule } from '@angular/common/http';
     UnauthorizedPageComponent,
     LoginPageComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    NgxPermissionsModule.forRoot(), // NgxPermissionService ngxRoleServices
+  ],
   // providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   providers: [],
   bootstrap: [AppComponent],

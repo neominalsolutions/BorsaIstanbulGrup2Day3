@@ -17,14 +17,18 @@ export class UserDetailPageComponent implements OnInit {
   ngOnInit(): void {
     console.log('aRoute', this.aRoute);
 
-    const param = this.aRoute.snapshot.params;
+    const param = this.aRoute.snapshot.params as any;
     // routeParams
     //
     const c = this.aRoute.snapshot.queryParams as any;
 
     console.log('c', c?.username);
 
-    this.user$ = this.uS.getUserDetail(c?.username);
+    if (param.username != undefined) {
+      this.user$ = this.uS.getUserDetail(param?.username);
+    } else {
+      this.user$ = this.uS.getUserDetail(c?.username);
+    }
 
     this.aRoute.queryParams.subscribe((param) => {
       console.log('param', param);
